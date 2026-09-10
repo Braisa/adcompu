@@ -10,7 +10,7 @@ def lowest(l, highest_instead=False):
 def passing(l, failing_instead=False):
     passing_tally = 0
     for grade in l:
-        passing_tally += int((grade >= 5 and not failing_instead) or (grade < 5 and failing_instead))
+        passing_tally += int(grade >= 5) + (int(grade < 5) - int(grade >= 5)) * int(failing_instead)
     passing_ratio = passing_tally / len(l)
     return passing_tally, passing_ratio
 
