@@ -10,6 +10,7 @@ def greater_of_three(a, b, c):
         return c
 
 def another_way(a, b, c):
-    greatest = [a,b,c].sort()[-1]
+    ordered = [a,b,c].sort()
+    greatest = ordered[-1]
     print(greatest)
     return greatest
