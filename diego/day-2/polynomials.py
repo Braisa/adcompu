@@ -42,6 +42,6 @@ for root in poly_quin.roots:
 print(f"As raíces do polinomio\n{poly_quin}\nson, reais\n{real_roots}\ne complexas\n{complex_roots}\n{"-"*25}")
 
 poly_roots = np.array((2, np.complex128(1,2), np.complex128(1,-2), 3, 4))
-poly_from_roots = np.poly1d(poly_roots)
+poly_from_roots = np.poly1d(poly_roots, r=True)
 
 print(f"O polinomio con raíces\n{poly_roots}\né\n{poly_from_roots}\n{"-"*25}")
