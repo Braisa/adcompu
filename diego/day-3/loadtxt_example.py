@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 
 DATA_FILE = "diego/day-3/data2s.txt"
 
-data = np.loadtxt(DATA_FILE)
-x, y = data.T
+x, y = np.loadtxt(DATA_FILE, unpack=True)
 
 fig, ax = plt.subplots()
 
