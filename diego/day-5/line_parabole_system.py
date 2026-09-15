@@ -28,8 +28,8 @@ fig, ax = plt.subplots()
 
 xlin = np.linspace(-2, 5, 1000)
 
-ax.plot(xlin, line_func(xlin, xlin), label=r"$x_2 = 1.4 x_1 - 0.6$")
-ax.plot(xlin, parabole_func(xlin, xlin), label=r"$x_2 = x1^2 - 1.6 x_1 - 4.6$")
+ax.plot(xlin, line_func(xlin, 0), label=r"$x_2 = 1.4 x_1 - 0.6$")
+ax.plot(xlin, parabole_func(xlin, 0), label=r"$x_2 = x_1^2 - 1.6 x_1 - 4.6$")
 
 ax.set_xlim(left=np.min(xlin), right=np.max(xlin))
 
