@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-DATA_FILE = "diego/day-4/dataskipc.txt"
+DATA_FILE = "diego/day-4/dataskips.txt"
 
 fit_order = 3
 actual_parameter_number = 2
@@ -23,15 +23,17 @@ for i in range(fit_order+1):
 aux_b = (y / sy).T
 
 coefficient_matrix = aux_a @ aux_a.T
-curve_matrix = np.linalg.inv(coefficient_matrix)
 independent_matrix = aux_a @ aux_b
 
 # Necessary to trim matrix since fit skips some parameters
 
-curve_matrix_trim = np.vstack((curve_matrix[0,::3], curve_matrix[-1,::3]))
+coefficient_matrix_trim = np.vstack((coefficient_matrix[0,::3], coefficient_matrix[-1,::3]))
 independent_matrix_trim = np.vstack((independent_matrix[0], independent_matrix[-1]))
 
-solution_matrix = curve_matrix_trim @ independent_matrix_trim
+curve_matrix = np.linalg.inv(coefficient_matrix_trim)   
+solution_matrix = curve_matrix @ independent_matrix_trim
+
+print(solution_matrix)
 
 fig, ax = plt.subplots()
 
