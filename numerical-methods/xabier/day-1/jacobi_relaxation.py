@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from cmasher import get_sub_cmap
 from tqdm import tqdm
+from matplotlib.ticker import FixedFormatter
 
 def jacobi_step(V):
     V_new = V.copy()
@@ -29,12 +30,14 @@ for step in tqdm(range(maximum_steps)):
 
 fig, ax = plt.subplots()
 
-ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
+cax = ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
 
 ax.set_xticks(np.arange(side))
 ax.set_yticks(np.arange(side))
 
 ax.set_xticklabels(np.arange(side))
 ax.set_yticklabels(np.arange(side))
+
+fig.colorbar(cax, ax=ax, location="right", orientation="vertical", fraction=.1, ticks=[cax.norm.vmin, cax.norm.vmax], format=FixedFormatter([r"$0$ V", r"$100$ V"]))
 
 fig.savefig("numerical-methods/xabier/day-1/jacobi_relaxation.pdf", bbox_inches="tight")
