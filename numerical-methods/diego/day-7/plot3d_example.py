@@ -20,4 +20,4 @@ ax.set_zlabel(r"$z$")
 
 ax.view_init(elev=20, azim=-30, roll=0)
 
-fig.savefig("diego/day-7/plot3d_example.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-7/plot3d_example.pdf", bbox_inches="tight")

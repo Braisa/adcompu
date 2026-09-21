@@ -47,4 +47,4 @@ ax_zxy.set_xlabel(r"$x$")
 ax_zxy.set_ylabel(r"$y$")
 ax_zxy.set_zlabel(r"$z$")
 
-fig.savefig("diego/day-8/lorenz_system.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-8/lorenz_system.pdf", bbox_inches="tight")

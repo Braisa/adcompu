@@ -19,4 +19,4 @@ ax.set_xlim(left=np.min(xs), right=np.max(xs))
 ax.xaxis.set_major_locator(plt.MultipleLocator(1))
 ax.xaxis.set_minor_locator(plt.MultipleLocator(.25))
 
-fig.savefig("diego/day-3/visual_equation_system.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-3/visual_equation_system.pdf", bbox_inches="tight")

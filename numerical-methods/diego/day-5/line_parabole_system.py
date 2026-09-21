@@ -38,4 +38,4 @@ ax.set_ylabel(r"$x_2$")
 
 ax.legend(loc="best")
 
-fig.savefig("diego/day-5/line_parabole_system.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-5/line_parabole_system.pdf", bbox_inches="tight")

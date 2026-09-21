@@ -21,4 +21,4 @@ ax.set_xlim(left=np.min(Tlin), right=np.max(Tlin))
 ax.set_xlabel(r"$T$ (K)")
 ax.set_ylabel(r"$m$")
 
-fig.savefig("diego/day-5/fsolve_mag.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-5/fsolve_mag.pdf", bbox_inches="tight")

@@ -71,4 +71,4 @@ ax_bottom.yaxis.set_major_locator(plt.MultipleLocator(.2))
 
 ax_bottom.set_title("subplot(3,3,8)")
 
-fig.savefig("diego/day-2/adding_subplots_three.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-2/adding_subplots_three.pdf", bbox_inches="tight")

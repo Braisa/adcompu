@@ -27,4 +27,4 @@ axs[1].set_xlim(left=np.min(times), right=np.max(times))
 axs[1].set_xlabel(r"$t$")
 axs[1].set_ylabel(r"$x^\prime$")
 
-fig.savefig("diego/day-8/second_order_derivative.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-8/second_order_derivative.pdf", bbox_inches="tight")

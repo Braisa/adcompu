@@ -17,4 +17,4 @@ for (ax, func, lab) in zip(axs, funcs, labels):
     ax.set_ylabel(lab)
 
 
-fig.savefig("diego/day-1/subplots_example.pdf")
+fig.savefig("numerical-methods/diego/day-1/subplots_example.pdf")

@@ -59,4 +59,4 @@ axs[0].set_ylabel(r"$(-5 - sen(x)/x)^{-1}$")
 
 axs[1].set_xlim(left=left_bound, right=right_bound)
 
-fig.savefig("diego/day-6/fmin_sine.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-6/fmin_sine.pdf", bbox_inches="tight")

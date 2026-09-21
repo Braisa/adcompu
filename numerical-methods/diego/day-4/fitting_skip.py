@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-DATA_FILE = "diego/day-4/dataskips.txt"
+DATA_FILE = "numerical-methods/diego/day-4/dataskips.txt"
 
 fit_order = 3
 actual_parameter_number = 2
@@ -46,7 +46,7 @@ ax.plot(lins, fit(lins, *solution_matrix), color="tab:purple", ls="solid")
 ax.set_xlabel(r"$x$")
 ax.set_ylabel(r"$y$")
 
-fig.savefig(f"diego/day-4/fitting_skip_{DATA_FILE.split("/")[-1].split(".")[0]}.pdf", bbox_inches="tight")
+fig.savefig(f"numerical-methods/diego/day-4/fitting_skip_{DATA_FILE.split("/")[-1].split(".")[0]}.pdf", bbox_inches="tight")
 
 chisq = np.sum((y - fit(x, *solution_matrix))**2 / sy**2)
 

@@ -30,4 +30,4 @@ ax.set_xlabel(r"$x_2$")
 
 ax.legend(loc="best")
 
-fig.savefig("diego/day-5/line_cubic_system.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-5/line_cubic_system.pdf", bbox_inches="tight")

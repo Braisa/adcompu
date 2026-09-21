@@ -18,4 +18,4 @@ ax.set_xlim(left=np.min(times), right=np.max(times))
 ax.set_xlabel(r"$t$")
 ax.set_ylabel(r"$y(t)$")
 
-fig.savefig("diego/day-7/odeint_example.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-7/odeint_example.pdf", bbox_inches="tight")

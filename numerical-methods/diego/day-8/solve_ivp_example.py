@@ -40,4 +40,4 @@ for (deriv, initial_value, time, label, name) in zip(derivs, initial_values, tim
     ax.set_xlabel(r"$t$")
     ax.set_ylabel(label)
 
-    fig.savefig(f"diego/day-8/solve_ivp_example_{name}.pdf", bbox_inches="tight")
+    fig.savefig(f"numerical-methods/diego/day-8/solve_ivp_example_{name}.pdf", bbox_inches="tight")

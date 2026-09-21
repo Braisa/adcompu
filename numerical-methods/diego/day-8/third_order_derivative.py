@@ -31,4 +31,4 @@ for (ax, sol, col, lab) in zip(axs, solution.y, colors, labels):
 
     ax.indicate_inset_zoom(ins, edgecolor="black")
 
-fig.savefig("diego/day-8/third_order_derivative.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-8/third_order_derivative.pdf", bbox_inches="tight")

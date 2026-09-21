@@ -61,4 +61,4 @@ for (system, initial_value, time, lim, name) in zip(systems, initial_values, tim
     axs[2].set_xlabel(labels[2][0])
     axs[2].set_ylabel(labels[2][1])
 
-    fig.savefig(f"diego/day-8/differential_system_{name}.pdf", bbox_inches="tight")
+    fig.savefig(f"numerical-methods/diego/day-8/differential_system_{name}.pdf", bbox_inches="tight")

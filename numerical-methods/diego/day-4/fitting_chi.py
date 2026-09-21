@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-DATA_FILE = "diego/day-4/datachis.txt"
+DATA_FILE = "numerical-methods/diego/day-4/datachis.txt"
 
 fit_order = 3
 
@@ -38,7 +38,7 @@ ax.plot(lins, fit(lins), color="tab:purple", ls="solid")
 ax.set_xlabel(r"$x$")
 ax.set_ylabel(r"$y$")
 
-fig.savefig(f"diego/day-4/fitting_chi_{DATA_FILE.split("/")[-1].split(".")[0]}.pdf", bbox_inches="tight")
+fig.savefig(f"numerical-methods/diego/day-4/fitting_chi_{DATA_FILE.split("/")[-1].split(".")[0]}.pdf", bbox_inches="tight")
 
 chisq = np.sum((y - fit(x))**2 / sy**2)
 

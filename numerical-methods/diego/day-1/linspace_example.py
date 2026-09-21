@@ -13,4 +13,4 @@ ax.set_ylabel(r"$y_i$")
 
 ax.grid(True) # -_-
 
-fig.savefig("diego/linspace_example.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/linspace_example.pdf", bbox_inches="tight")

@@ -26,4 +26,4 @@ ax.set_ylim(bottom=ybot, top=ytop)
 ax.set_xlabel(r"$x$")
 ax.set_ylabel(r"$x + 2\cos x - 4$")
 
-fig.savefig("diego/day-5/fsolve_example.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/diego/day-5/fsolve_example.pdf", bbox_inches="tight")
