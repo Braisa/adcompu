@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from cmasher import get_sub_cmap
+from matplotlib.ticker import FixedFormatter
 
 def get_boundary(side):
     V = np.zeros((side, side))
@@ -73,11 +74,11 @@ for i, side in enumerate(sides):
     maximum_errors[i] = np.max(V_error)
 
     numerical_ax = axs[0,i]
-    numerical_ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
+    vcax = numerical_ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
     if i == 0: numerical_ax.set_ylabel("Numerical solution")
 
     difference_ax = axs[1,i]
-    difference_ax.imshow(V_step - V_exact, cmap=get_sub_cmap("plasma", .2, .8))
+    pcax = difference_ax.imshow(np.abs(V_step - V_exact), cmap=get_sub_cmap("plasma", .2, .8))
     if i == 0: difference_ax.set_ylabel("Difference")
 
     exact_ax = axs[2,i]
@@ -90,6 +91,10 @@ for i, side in enumerate(sides):
     
         ax.set_xticklabels(["0", "1"])
         ax.set_yticklabels(["0", "1"])
+
+fig.colorbar(vcax, ax=axs, location="right", orientation="vertical", fraction=.1, ticks=[vcax.norm.vmin, vcax.norm.vmax], format=FixedFormatter([r"$0$", r"$1$"]))
+
+fig.colorbar(pcax, ax=axs, location="right", orientation="vertical", fraction=.1, ticks=[pcax.norm.vmin, pcax.norm.vmax], format=FixedFormatter([r"$0$", f"${pcax.norm.vmax:.2E}$"]))
 
 fig.savefig("numerical-methods/xabier/day-1/gauss_seidel.pdf", bbox_inches="tight")
 
