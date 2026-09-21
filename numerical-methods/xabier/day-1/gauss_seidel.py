@@ -42,7 +42,7 @@ def gauss_seidel_rb_step(V, mask, mask_values):
 
 exact = lambda x, y : np.sin(np.pi*x) * np.sinh(np.pi*y) / np.sinh(np.pi)
 
-tolerance = 0
+tolerance = 1e-8
 maximum_steps = 2000
 
 sides = (10, 20, 40, 80, 120)
@@ -55,9 +55,10 @@ for i, side in enumerate(sides):
     V_prev = V_initial.copy()
 
     for step in tqdm(range(maximum_steps)):
+        V_check = V_prev.copy()
         V_step = gauss_seidel_rb_step(V_prev, boundary_mask, boundary_values)
 
-        below_tolerance = np.all(np.abs(V_step - V_prev) < tolerance)
+        below_tolerance = np.all(np.abs(V_step - V_check) < tolerance)
         if not below_tolerance:
             V_prev = V_step.copy()
         else:
