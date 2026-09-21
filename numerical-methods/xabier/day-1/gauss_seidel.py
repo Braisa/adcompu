@@ -97,4 +97,4 @@ ax.set_xticks(sides)
 ax.set_xlabel("Grid side")
 ax.set_ylabel("Maximum error")
 
-fig.savefig("numerical-methods/xabier/day-1/gauss_seidel_comparison.pdf", bbox_inches="tight")
+fig.savefig("numerical-methods/xabier/day-1/gauss_seidel_errors.pdf", bbox_inches="tight")
