@@ -43,10 +43,10 @@ def gauss_seidel_rb_step(V, mask, mask_values):
 exact = lambda x, y : np.sin(np.pi*x) * np.sinh(np.pi*y) / np.sinh(np.pi)
 
 tolerance = 1e-8
-maximum_steps = 2000
+maximum_steps = 15_000
 
 sides = (10, 20, 40, 80, 120)
-fig, axs = plt.subplots(2, len(sides), figsize=(20, 8))
+fig, axs = plt.subplots(3, len(sides), figsize=(20, 8))
 maximum_errors = np.zeros_like(sides, dtype=np.float64)
 
 for i, side in enumerate(sides):
@@ -69,18 +69,22 @@ for i, side in enumerate(sides):
 
     V_exact = exact(grid_values_x, grid_values_y)
     V_exact[boundary_mask] = boundary_values[boundary_mask]
-    V_error = V_step[1:-1,1:-1] - V_exact[1:-1,1:-1]
+    V_error = np.abs(V_step[1:-1,1:-1] - V_exact[1:-1,1:-1])
     maximum_errors[i] = np.max(V_error)
 
     numerical_ax = axs[0,i]
     numerical_ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
     if i == 0: numerical_ax.set_ylabel("Numerical solution")
 
-    exact_ax = axs[1,i]
+    difference_ax = axs[1,i]
+    difference_ax.imshow(V_step - V_exact, cmap=get_sub_cmap("plasma", .2, .8))
+    if i == 0: difference_ax.set_ylabel("Difference")
+
+    exact_ax = axs[2,i]
     exact_ax.imshow(V_exact, cmap=get_sub_cmap("viridis", .2, .8))
     if i == 0: exact_ax.set_ylabel("Exact solution")
 
-    for ax in (numerical_ax, exact_ax):
+    for ax in (numerical_ax, exact_ax, difference_ax):
         ax.set_xticks([-.5, side-.5])
         ax.set_yticks([-.5, side-.5])
     
@@ -91,11 +95,13 @@ fig.savefig("numerical-methods/xabier/day-1/gauss_seidel.pdf", bbox_inches="tigh
 
 fig, ax = plt.subplots()
 
-ax.plot(sides, maximum_errors, "o", color="tab:orange")
+ax.bar(sides, maximum_errors, color="tab:orange")
+
+ax.set_yscale("log")
 
 ax.set_xticks(sides)
 
 ax.set_xlabel("Grid side")
-ax.set_ylabel("Maximum error")
+ax.set_ylabel("Maximum absolute error")
 
 fig.savefig("numerical-methods/xabier/day-1/gauss_seidel_errors.pdf", bbox_inches="tight")
