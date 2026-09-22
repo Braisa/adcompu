@@ -51,10 +51,11 @@ maximum_steps = 5000
 side = 40
 
 fig, axs = plt.subplots(1, 2, figsize=(10,4))
+fig_c, axs_c = plt.subplots(1, 2, figsize=(10,4))
 methods = (jacobi_step, gauss_seidel_rb_step)
 titles = ("Jacobi", "Gauss-Seidel RB")
 
-for ax, method, title in zip(axs, methods, titles):
+for ax, ax_c, method, title in zip(axs, axs_c, methods, titles):
 
     V_initial, boundary_mask, boundary_values = get_boundary(side)
     V_prev = V_initial.copy()
@@ -71,14 +72,20 @@ for ax, method, title in zip(axs, methods, titles):
 
     cax = ax.imshow(V_step, cmap=get_sub_cmap("plasma", .2, .8))
 
-    ax.set_xticks([-.5, side-.5])
-    ax.set_yticks([-.5, side-.5])
+    cs = ax_c.contour(V_step, cmap=get_sub_cmap("plasma", .2, .8))
+    ax_c.clabel(cs, fontsize=10)
 
-    ax.set_xticklabels(["0", "40"])
-    ax.set_yticklabels(["0", "40"])
-
-    ax.set_title(f"{title}\n({step+1} steps)")
+    for a in (ax, ax_c):
+        a.set_xticks([-.5, side-.5])
+        a.set_yticks([-.5, side-.5])
+    
+        a.set_xticklabels(["0", "40"])
+        a.set_yticklabels(["0", "40"])
+    
+        a.set_title(f"{title}\n({step+1} steps)")
 
 fig.colorbar(cax, ax=axs, orientation="vertical", fraction=.1, ticks=[cax.norm.vmin, cax.norm.vmax], format=FixedFormatter([r"$0$ V", r"$100$ V"]))
 
 fig.savefig("numerical-methods/xabier/day-1/method_comparison.pdf", bbox_inches="tight")
+
+fig_c.savefig("numerical-methods/xabier/day-1/method_comparison_contour.pdf", bbox_inches="tight")
