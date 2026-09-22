@@ -28,6 +28,9 @@ for step in tqdm(range(maximum_steps)):
     else:
         break
 
+maximum_change = np.max(np.abs(V_step - V_initial))
+print(f"Maximum change after {step+1} steps: {maximum_change:.3f}")
+
 fig, ax = plt.subplots()
 
 cax = ax.imshow(V_step, cmap=get_sub_cmap("viridis", .2, .8))
