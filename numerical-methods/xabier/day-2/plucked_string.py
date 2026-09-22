@@ -45,16 +45,16 @@ for (dt, ax) in zip(dts, axs):
 
     snapshot_colors = [c for c in get_sub_cmap("plasma", .2, .8, N=len(list(snapshots.keys()))).colors]
     for (time, snapshot, snap_color) in zip(list(snapshots.keys()), list(snapshots.values()), snapshot_colors):
-        ax.plot(xlin, snapshot, ls="solid", color=snap_color, label=f"$t = {time:.3f}$")
+        ax.plot(xlin, snapshot, ls="solid", color=snap_color, label=f"$t = {time:.3f}$ s")
 
     ax.set_xlim(left=np.min(xlin), right=np.max(xlin))
 
-    ax.set_xlabel(r"$x$")
+    ax.set_xlabel(r"$x$ (m)")
     ax.set_ylabel(r"$y$")
 
     ax.legend(loc="best")
 
-    ax.set_title(f"$\Delta t = {dt}$")
+    ax.set_title(f"$\Delta t = {dt}$ s")
 
 fig.tight_layout()
 fig.savefig("numerical-methods/xabier/day-2/plucked_string.pdf", bbox_inches="tight")
