@@ -25,6 +25,7 @@ r = c * dt / dx
 
 y_past = boundary_f(xlin)
 y_now = np.zeros_like(y_past)
+y_now[1:-1] = boundary_f(xlin[1:-1]) + dt * boundary_g(xlin[1:-1]) + .5 * r**2 * (boundary_f(xlin[2:]) + boundary_f(xlin[:-2]) - 2*boundary_f(xlin[1:-1]))
 
 snapshot_steps = [int(round(time / dt)) for time in snapshot_times]
 
