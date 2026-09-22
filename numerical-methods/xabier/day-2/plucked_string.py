@@ -11,7 +11,7 @@ L, timelength, c = 1, .5, 1
 x0, sigma = .5, .05
 
 boundary_f = lambda x : np.exp(-(x - x0)**2/2/sigma**2)
-boundary_g = lambda x : -2*np.sin(np.pi * x)
+boundary_g = lambda x : .2*np.sin(np.pi * x)
 
 dx = .01
 N = 1 + int(round(L / dx))
@@ -30,6 +30,7 @@ for (dt, ax) in zip(dts, axs):
 
     y_past = boundary_f(xlin)
     y_now = np.zeros_like(y_past)
+    y_now[1:-1] = boundary_f(xlin[1:-1]) + dt * boundary_g(xlin[1:-1]) + .5 * r**2 * (boundary_f(xlin[2:]) + boundary_f(xlin[:-2]) - 2*boundary_f(xlin[1:-1]))
 
     snapshot_steps = [int(round(time / dt)) for time in snapshot_times]
 
