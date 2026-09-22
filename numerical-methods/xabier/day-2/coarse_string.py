@@ -42,7 +42,7 @@ fig, ax = plt.subplots()
 
 snapshot_colors = [c for c in get_sub_cmap("plasma", .2, .8, N=len(list(snapshots.keys()))).colors]
 for (time, snapshot, snap_color) in zip(list(snapshots.keys()), list(snapshots.values()), snapshot_colors):
-    ax.plot(xlin, snapshot, ls="solid", color=snap_color, label=f"$t = {time:.3f}$ s")
+    ax.plot(xlin, snapshot, ls="solid", color=snap_color, label=f"$t = {time:.2f}$ s")
 
 ax.set_xlim(left=np.min(xlin), right=np.max(xlin))
 
