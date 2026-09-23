@@ -25,7 +25,9 @@ eps = 8.854e-14
 
 fig, axs = subplots(1, 2, figsize=(16, 6))
 
-norm = Normalize(vmin=-rho*h**2/eps, vmax=+rho*h**2/eps)
+vmin, vmax = -rho*h**2/eps, +rho*h**2/eps
+
+norm = Normalize(vmin=vmin, vmax=vmax)
 colorizer = Colorizer(norm=norm, cmap=get_sub_cmap("plasma", .2, .8))
 
 rho_matrix_neg = np.zeros((side, side))
@@ -69,6 +71,6 @@ for rho_matrix, ax, rects in zip(rho_matrices, axs, rects_col):
     ax.set_xticklabels(["0", f"{side}"])
     ax.set_yticklabels(["0", f"{side}"])
 
-fig.colorbar(cax, ax=axs, location="right", orientation="vertical", fraction=.1, ticks=[norm.vmin, norm.vmax], format=FixedFormatter([r"$-100$ V", r"$+100$ V"]))
+fig.colorbar(cax, ax=axs, location="right", orientation="vertical", fraction=.1, ticks=[norm.vmin, norm.vmax], format=FixedFormatter([f"${vmin:.2E}$ V", f"$+{vmax:.2E}$ V"]))
 
 fig.savefig("numerical-methods/xabier/extras/poisson.pdf", bbox_inches="tight")
