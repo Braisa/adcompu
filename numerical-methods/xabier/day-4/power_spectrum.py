@@ -8,7 +8,8 @@ phi = np.pi/4
 signal = lambda t : np.cos(2*np.pi*f_1*t + phi) + .5*np.sin(2*np.pi*f_2*t)
 
 sampling_start, sampling_end = 0, 2
-sampling_interval = np.linspace(0, 2, 2000, endpoint=False)
+sample_number = 2000
+sampling_interval = np.linspace(sampling_start, sampling_end, sample_number, endpoint=False)
 frequencies = np.arange(len(sampling_interval)) / (sampling_end - sampling_start)
 
 coefficients = fft(signal(sampling_interval))
