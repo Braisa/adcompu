@@ -40,6 +40,8 @@ for t, c in zip(ts, cmap.colors):
 
 ax.set_xlim(left=np.min(xlin), right=np.max(xlin))
 
+ax.set_ylim(bottom=0)
+
 ax.set_xlabel(r"$x$")
 ax.set_ylabel(r"$T$")
 
