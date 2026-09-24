@@ -80,8 +80,8 @@ b_ns = [b_n(n) for n in ns]
 axs_d[0].bar(ns, np.abs(a_ns), color="tab:purple")
 axs_d[1].bar(ns, np.abs(b_ns), color="tab:orange")
 
-axs_d[0].set_ylabel(r"$a_n$")
-axs_d[1].set_ylabel(r"$b_n$")
+axs_d[0].set_ylabel(r"$\left\vert a_n \right\vert$")
+axs_d[1].set_ylabel(r"$\left\vert b_n \right\vert$")
 
 for ax in axs_d:
     ax.set_xlabel(r"$n$")
