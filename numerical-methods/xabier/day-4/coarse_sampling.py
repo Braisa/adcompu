@@ -48,4 +48,4 @@ peaks_vals = power_spectrum[peaks_freqs]
 print(f"Signal frequencies: f_1 = {f_1} and f_2 = {f_2} Hz.")
 print("After Fourier transform:")
 for peak_freq, peak_val in zip(peaks_freqs[0], peaks_vals):
-    print(f"Frequency peak at {peak_freq} Hz with power {peak_val:.3f}.")
+    print(f"Frequency peak at {frequencies[peak_freq]} Hz with power {peak_val:.3f}.")
