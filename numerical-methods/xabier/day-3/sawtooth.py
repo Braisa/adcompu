@@ -11,7 +11,7 @@ slope = lambda t : 1 - .5*t
 definition_interval = np.linspace(0, 4, sample_size)
 extension_interval = np.linspace(-4, 8, sample_size)
 
-interval_mapping = lambda t, original, target : ((t + np.min(target) - np.min(original)) % period) + np.min(target)
+interval_mapping = lambda t, original, target : ((t - np.min(original)) % period) + np.min(target)
 
 a_0 = 2/period * quad(slope, np.min(definition_interval), np.max(definition_interval))[0]
 

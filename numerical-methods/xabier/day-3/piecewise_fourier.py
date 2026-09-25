@@ -15,7 +15,7 @@ piecewise_func = lambda x : (
 definition_interval = np.linspace(5, 10, sample_size)
 extension_interval = np.linspace(-5, 15, sample_size)
 
-interval_mapping = lambda x, original, target : ((x + np.min(target) - np.min(original)) % period) + np.min(target)
+interval_mapping = lambda x, original, target : ((x - np.min(original)) % period) + np.min(target)
 
 fig_ex, ax_ex = subplots()
 
