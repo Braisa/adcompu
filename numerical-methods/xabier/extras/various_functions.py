@@ -11,11 +11,11 @@ funcs = (
 periods = (3, 5, 2)
 
 definition_bounds = ([-1, 2], [0, 5], [-1, 1])
-extended_bounds = ([-1, 2], [-5, 10], [-3, 3])
+extended_bounds = ([-4, 5], [-5, 10], [-3, 3])
 
 names = ("Sawtooth", "Wavy", "Spiky")
 
-interval_mapping = lambda x, original, target : ((x + np.min(target) - np.min(original)) % period) + np.min(target)
+interval_mapping = lambda x, original, target : ((x - np.min(original)) % period) + np.min(target)
 
 sample_size = 1000
 
