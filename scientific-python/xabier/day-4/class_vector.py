@@ -18,9 +18,15 @@ class Vector:
     def __repr__(self):
         return f"Vector({str(self.components)})"
 
+    @classmethod
+    def from_single_value(cls, value, dimension):
+        if not isinstance(value, (float, int)):
+            raise TypeError("value must be a number")
+        return cls([value for _ in range(dimension)])
+
     def __add__(self, other):
         if isinstance(other, (float, int)):
-            other = Vector([other for _ in range(len(self.components))])
+            other = Vector.from_single_value(other, len(self))
         if not isinstance(other, Vector):
             return NotImplemented
         return Vector([s + o for s, o in zip(self.components, other.components)])
@@ -30,7 +36,7 @@ class Vector:
 
     def __eq__(self, other):
         if not isinstance(other, Vector):
-            return NotImplemented
+            other = Vector.from_single_value(other, len(self))
         return all([s == o for s, o in zip(self.components, other.components)])
 
     def __mul__(self, value):
