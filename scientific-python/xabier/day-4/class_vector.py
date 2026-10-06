@@ -6,7 +6,7 @@ class Vector:
 
     def __init__(self, components):
         if not all([isinstance(c, (float, int)) for c in components]):
-            raise ValueError("all components must be numbers")
+            raise TypeError("all components must be numbers")
         self.components = [c for c in components]
 
     def __len__(self):
