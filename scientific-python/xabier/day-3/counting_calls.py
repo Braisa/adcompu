@@ -3,11 +3,9 @@ from functools import wraps, lru_cache
 def count_calls(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
-        if not hasattr(wrapper, "calls"):
-            setattr(wrapper, "calls", 0)
-        else:
-            setattr(wrapper, "calls", 1 + getattr(wrapper, "calls"))
+        wrapper.calls += 1
         return func(*args, **kwargs)
+    wrapper.calls = 0
     return wrapper
 
 @count_calls
