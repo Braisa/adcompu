@@ -29,6 +29,8 @@ class Vector:
             other = Vector.from_single_value(other, len(self))
         if not isinstance(other, Vector):
             return NotImplemented
+        if len(self) != len(other):
+            raise ValueError("both vectors must have the same dimension")
         return Vector([s + o for s, o in zip(self.components, other.components)])
 
     def __sub__(self, other):
