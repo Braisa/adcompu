@@ -7,3 +7,9 @@ def test_class_vector(u, v):
     assert v - v == 0
     assert 2 * u == u + u
     assert abs(v)**2 == pytest.approx(v.dot(v))
+
+def test_different_dimension():
+    u = Vector([1,2])
+    v = Vector([3,4,5])
+    with pytest.raises(ValueError):
+        u + v
